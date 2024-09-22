@@ -10,7 +10,7 @@ const GameWorld: React.FC = () => {
     const updateSize = () => {
       setWindowSize({
         width: window.innerWidth,
-        height: window.innerHeight * 0.5,
+        height: window.innerHeight * 0.75,
       });
     };
 
@@ -48,7 +48,7 @@ export default GameWorld;
 const GameWorldContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 50vh; /* 画面全体の高さを占める */
+  height: 80vh; /* 画面全体の高さを占める */
   background-color: #000;
   margin-top: 10vh;
   display: flex;
@@ -56,6 +56,25 @@ const GameWorldContainer = styled.div`
   justify-content: center;
   box-sizing: border-box;
   overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px; /* 幅を指定 */
+    height: 250px; /* 高さを指定 */
+    background: linear-gradient(
+      to top left,
+      /* グラデーションの方向 */ rgba(211, 211, 211, 1) 1%,
+      /* グレーから黒 */ rgba(0, 0, 0, 1) 30%
+    );
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    transform: rotate(-90deg); /* 左に90度回転 */
+    @media (max-width: 768px) {
+      width: 80px; /* モバイルでは三角形を小さくする */
+      height: 80px;
+    }
+  }
 `;
 
 const ThreeJSWrapper = styled.div`

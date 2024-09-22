@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import GameWorld from "./components/GameWorld";
 import GameConcept from "./components/GameConcept";
 import RoadMap from "./components/RoadMap";
-import Team from "./components/Team";
+import Navigate from "./components/Navigate";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <GameWorld />
       <GameConcept />
       <RoadMap />
-      <Team />
+      <Navigate />
       <Footer />
     </AllContent>
   );
