@@ -48,7 +48,6 @@ const GameConcept: React.FC = () => {
 
 export default GameConcept;
 
-// スタイリング部分
 const DescriptionSection = styled.div`
   display: flex;
   justify-content: space-between; /* 横並びで左右対称に配置 */

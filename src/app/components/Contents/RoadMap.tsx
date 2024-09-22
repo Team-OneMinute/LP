@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useMediaQuery } from "react-responsive"; // メディアクエリを使うためのフック
+import { useMediaQuery } from "react-responsive";
 
 const RoadMap: React.FC = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 }); // モバイルかどうかを判定
