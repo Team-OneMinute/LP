@@ -1,22 +1,33 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import GameWorld from "./components/GameWorld";
-import GameConcept from "./components/GameConcept";
-import RoadMap from "./components/RoadMap";
-import Navigate from "./components/Navigate";
+import Header from "./components/Contents/Header";
+import GameWorld from "./components/Contents/GameWorld";
+import GameConcept from "./components/Contents/GameConcept";
+import RoadMap from "./components/Contents/RoadMap";
+import Navigate from "./components/Contents/Navigate";
+import GameType from "./components/Contents/GameType";
 
 export default function Home() {
+  // HeaderのLinker
+  const AboutRef = useRef<HTMLDivElement>(null);
+  const RoadMapRef = useRef<HTMLDivElement>(null);
+  const LinkRef = useRef<HTMLDivElement>(null);
+
   return (
     <AllContent>
-      <Header />
+      <Header AboutRef={AboutRef} RoadMapRef={RoadMapRef} LinkRef={LinkRef} />
       <GameWorld />
+      <div ref={AboutRef}>
+        <GameType />
+      </div>
       <GameConcept />
-      <RoadMap />
-      <Navigate />
-      <Footer />
+      <div ref={RoadMapRef}>
+        <RoadMap />
+      </div>
+      <div ref={LinkRef}>
+        <Navigate />
+      </div>
     </AllContent>
   );
 }
@@ -27,4 +38,3 @@ const AllContent = styled.div`
   min-height: 100vh;
   width: 100%;
 `;
-

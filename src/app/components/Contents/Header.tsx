@@ -1,7 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  AboutRef: React.RefObject<HTMLDivElement>;
+  RoadMapRef: React.RefObject<HTMLDivElement>;
+  LinkRef: React.RefObject<HTMLDivElement>;
+}
+
+const Header: React.FC<HeaderProps> = ({ AboutRef, RoadMapRef, LinkRef }) => {
+  const handleScroll = (sectionRef: React.RefObject<HTMLDivElement>) => {
+    sectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <HeaderContainer>
       <LeftSection>
@@ -9,8 +19,9 @@ const Header: React.FC = () => {
         <ProjectName>UTOPIA</ProjectName>
       </LeftSection>
       <RightSection>
-        <PageLink href="#section1">Link 1</PageLink>
-        <PageLink href="#section2">Link 2</PageLink>
+        <PageLink onClick={() => handleScroll(AboutRef)}>About</PageLink>
+        <PageLink onClick={() => handleScroll(RoadMapRef)}>RoadMap</PageLink>
+        <PageLink onClick={() => handleScroll(LinkRef)}>Link</PageLink>
       </RightSection>
     </HeaderContainer>
   );

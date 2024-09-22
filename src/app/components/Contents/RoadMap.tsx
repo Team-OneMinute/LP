@@ -1,12 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { useMediaQuery } from "react-responsive"; // メディアクエリを使うためのフック
 
 const RoadMap: React.FC = () => {
+  const isMobile = useMediaQuery({ maxWidth: 768 }); // モバイルかどうかを判定
+
   return (
     <ContentContainer>
       <TitleWrapper>Roadmap</TitleWrapper>
       <ImageWrapper>
-        <GameImage src="/roadmap.png" alt="Game Concept" />
+        <GameImage
+          src={isMobile ? "/roadmap_phone.png" : "/roadmap_pc.png"}
+          alt="Game Roadmap"
+        />
       </ImageWrapper>
     </ContentContainer>
   );
@@ -16,14 +22,14 @@ export default RoadMap;
 
 const ContentContainer = styled.div`
   flex: 1;
-  background-color: #000;
+  background-color: #fff;
   padding: 5vh 10%;
   text-align: center;
 `;
 
 const TitleWrapper = styled.h2`
   text-align: left;
-  color: #fff;
+  color: #000;
   font-size: 2rem;
   margin-bottom: 2rem;
 
@@ -37,21 +43,10 @@ const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
-  img {
-    width: 200%; /* 基本サイズ（PC用） */
-    max-width: 600px; /* PCでの最大幅 */
-    height: auto; /* 比率を保ちながら高さを自動調整 */
-
-    /* モバイルサイズの調整 */
-    @media (max-width: 768px) {
-      width: 90%; /* モバイル:幅を90%に */
-      max-width: none; /* 最大幅の制限を解除 */
-    }
-  }
 `;
 
 const GameImage = styled.img`
-  max-width: 70%;
+  max-width: 100%;
   height: auto;
   object-fit: contain;
 `;
