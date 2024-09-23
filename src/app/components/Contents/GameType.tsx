@@ -7,7 +7,7 @@ const GameType: React.FC = () => {
         <>
           <FreeGameTypeArea>
             <GameTypeIconWrapper>
-              <GameTypeIcon src="/icons/FreePlay_icon.png" alt="Game Concept" />
+              <GameTypeIcon src="/icons/Freeplay_icon.png" alt="Game Concept" />
             </GameTypeIconWrapper>
             <GameTypeTitle>Free Play</GameTypeTitle>
             <GameTypeDescription>
