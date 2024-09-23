@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 
 const RoadMap: React.FC = () => {
-  const isMobile = useMediaQuery({ maxWidth: 768 }); // モバイルかどうかを判定
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // クライアントサイドでのみフラグをtrueに
+  }, []);
+
+  if (!isClient) {
+    return null; // サーバーサイドでは何も表示しない
+  }
 
   return (
     <ContentContainer>

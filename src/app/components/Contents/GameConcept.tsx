@@ -59,7 +59,7 @@ const DescriptionSection = styled.div`
   @media (max-width: 768px) {
     flex-direction: column; /* モバイルでは縦並びに */
     align-items: center;
-    margin-top: 10%; /* モバイル向けにはさらにゆとりを追加 */
+    margin-top: 30%; /* モバイル向けにはさらにゆとりを追加 */
     margin-bottom: 10%; /* 下のゆとりも増やす */
   }
 `;
@@ -70,6 +70,9 @@ const DescImgArea = styled.div`
   justify-content: center;
   border-bottom: 2px solid white; /* 白いアンダーラインを追加 */
   padding-bottom: 10px; /* 画像とアンダーラインの間に余白を追加 */
+  @media (max-width: 768px) {
+    border-bottom: 0px;
+  }
 `;
 
 const DescImg = styled.img`

@@ -21,7 +21,6 @@ const WorldObj: React.FC<WorldObjProps> = ({ width, height }) => {
     const baseCameraDistance = 4;
     const dynamicCameraDistance =
       baseCameraDistance + Math.max(0, 1000 / width); // 画面幅に基づいてカメラ距離を調整
-    console.log("dynamicCameraDistance", dynamicCameraDistance);
     camera.position.set(0, 0, dynamicCameraDistance);
 
     // カメラのアスペクト比を更新
