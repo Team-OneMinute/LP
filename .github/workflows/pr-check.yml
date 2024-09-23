@@ -26,4 +26,4 @@ jobs:
         run: yarn build
 
       - name: Run lint
-        run: cd functions && yarn lint
+        run: yarn lint
